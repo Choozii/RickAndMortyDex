@@ -1,0 +1,9 @@
+.AllCharacters{
+    display : flex;
+    flex-flow : wrap;
+    justify-content: space-around;
+}
+.character_media{
+    display :block;
+}
+

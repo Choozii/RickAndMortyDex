@@ -1,0 +1,16 @@
+.character{
+    border: solid 1px #f3f3f3;
+}
+.character_image_bookmark_wrapper{
+    width : fit-content;
+    height: fit-content;
+    position : relative;
+}
+.character_image{
+}
+.character_bookmark{
+    position:absolute;
+    
+    right : 15px;
+    bottom : 30px;
+}

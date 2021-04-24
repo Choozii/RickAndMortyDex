@@ -17,7 +17,7 @@ const initialState = {
         return {
           ...state,
           loading: false,
-          data: action.payload,
+          data: state.data.concat(action.payload),
           errorMsg: "",
         };
       case "ITEM_LIST_FAIL":

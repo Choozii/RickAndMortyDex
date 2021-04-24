@@ -2,6 +2,52 @@ import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getItemList, setBookmarkTrue } from "../redux/actions/itemActions";
 import CardItem from "./CardItemContainer";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+`;
+const ItemList = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  @media screen and (min-width: 1440px) {
+    width: 1256px;
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 1024px;
+  }
+  @media (min-width: 426px) and (max-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (max-width: 425px) {
+    width: 335px;
+  }
+`;
+const FilteredList = styled(ItemList)`
+  justify-content: left;
+  @media screen and (min-width: 1025px) {
+    margin-left: 4.775%;
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    margin-left: 4.775%;
+  }
+  @media (min-width: 426px) and (max-width: 768px) {
+    margin-left: 9%;
+  }
+  @media screen and (max-width: 425px) {
+    margin-left: 10%;
+  }
+`;
+const BookmarkEmpty = styled.div`
+  justify-content: center;
+  align-items: center;
+  margin-top: 12.5rem;
+  color: gray;
+`;
 
 const CardItemList = () => {
   const dispatch = useDispatch();
