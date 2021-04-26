@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState, useCallback} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {getItemList} from '../redux/actions/itemActions';
 import './CharacterList.css';
@@ -6,63 +6,58 @@ import CharacterCard from './CharacterCard';
 
 const CharacterList = () => {
   const dispatch = useDispatch();
-  const pageNum = useRef(1);
-  const [index, setIndex] = useState(1); //렌더링을 위한 캐릭터 번호 저장
+  const [index, setIndex] = useState([1,2,3,4,5,6,7,8,9,10,11,12]); //렌더링을 위한 캐릭터 번호 저장
   const storeData = useSelector((state) => state.itemList.data);
   const loading = useSelector(state => state.itemList.loading);
+  const observer = useRef();
 
   useEffect(() => {
-    window.addEventListener("scroll", dispatchPage);
-    dispatch(getItemList(getCharacterIndex()));
-  }, [])
+    dispatch(getItemList(index));
+  }, [index])
 
-  //불러올 캐릭터 번호 list 생성
-  const getCharacterIndex = () => {
+  const lastCharacterRef = useCallback(node => {
+    if(loading) return ;
+    if(observer.current) observer.current.disconnect();
+    observer.current = new IntersectionObserver(entries => {
 
-    let characterNumbers = [];
-    for(let i=pageNum.current; i<pageNum.current+14;i++){
-      characterNumbers.push(i);
-    }
-    pageNum.current =+ 14;
-
-    return characterNumbers;
-  }
-
-  const dispatchPage = () => {
-    if (detectScreenEnd() && !loading) {
-      let characterNumbers = getCharacterIndex();
-      console.log(characterNumbers);
-      dispatch(getItemList(characterNumbers))
-      .then(() => {})
-      .catch(res => console.log(res));
-    }
-  };
-
-  const renderData = () => {
-    if (storeData.length === 0) {
-      return <div>Sorry
-        <br/>
-        There's no Data</div>
-    }
-    return storeData.map(character => {
-      return (
-        <section className="character_list">
-            <CharacterCard character={character}/>
-        </section>
-      )
+      if(entries[0].isIntersecting){
+        setIndex(index => index.map(elem => elem+12));
+      }
     })
-  }
+    if(node) observer.current.observe(node);
+    },[loading]);
+
 
   return (
     <div className="AllCharacters">
-      {renderData()}
+      
+      {
+        (storeData.length) === 0
+        ?<div>Sorry, there's no Data</div>
+        :<></>
+      }
+      { 
+      storeData.map((character, idx) => {
+        return (
+          storeData.length === idx+1
+          ?
+          <section ref={lastCharacterRef} className="character_list">
+              <CharacterCard idx={idx} character={character}/>
+          </section>
+          :
+          <section className="character_list">
+              <CharacterCard idx={idx} character={character}/>
+          </section>
+        )
+    })}
+    {
+        loading
+        ?<div>...loading</div>
+        :<></>
+      }
     </div>
   );
 };
 
-function detectScreenEnd() {
-  const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
-  if (scrollTop + clientHeight >= scrollHeight) return true;
-}
 
 export default CharacterList;

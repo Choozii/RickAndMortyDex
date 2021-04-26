@@ -1,4 +1,4 @@
-@import url(//db.onlinewebfonts.com/c/67680f2eb947c5cbd58b40961b4a61e9?family=Apple+SD+Gothic+Neo);
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
 :root{
 --breakpoint-mobile : 335px;
 --breakpoint-mobile-big : 426px;
@@ -8,11 +8,16 @@
 
 * {
   box-sizing: border-box;
-  font-family: "Apple SD Gothic Neo";
+  font-family: 'Exo 2', sans-serif;
   padding : 0.313rem;
 }
 
 .App{
   margin:31px 0 31px 0;
   user-select: none;
+}
+
+body{
+  /* background-image: url("./assets//images/background.jpg");
+  background-size:auto; */
 }

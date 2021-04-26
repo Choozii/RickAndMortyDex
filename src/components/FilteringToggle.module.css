@@ -1,0 +1,16 @@
+.header{
+    z-index : 10;
+    position : fixed;
+    width : 100%;
+    top : 0;
+    left : 0;
+    background-color: rgba(103, 156, 190, 0.5);
+    display : flex;
+    align-items: center;
+}
+.checkbox_image{
+    width : fit-content;
+}
+.checkbox_label{
+    color:black;
+}

@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setBookmarkToggle } from "../redux/actions/itemActions";
-import CardItem from "../components/CardItem";
 
 const CardItemContainer = ({ item }) => {
   const dispatch = useDispatch();
@@ -23,8 +22,9 @@ const CardItemContainer = ({ item }) => {
   };
 
   return (
-    <CardItem item={item} checked={checked} handleOnClick={handleOnClick} />
-  );
+    //<CardItem item={item} checked={checked} handleOnClick={handleOnClick} />
+  <></>
+    );
 };
 
 export default CardItemContainer;

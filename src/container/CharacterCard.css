@@ -1,16 +1,22 @@
 .character{
-    border: solid 1px #f3f3f3;
+    border: solid 2px #faf9f9;
 }
 .character_image_bookmark_wrapper{
     width : fit-content;
     height: fit-content;
     position : relative;
 }
-.character_image{
+.character_info{
+    color : rgb(107, 105, 105);
+    line-height: .6rem;
+}
+.character_number{
+    color : rgba(107, 105, 105, .6);
+    line-height: .6rem;
 }
 .character_bookmark{
     position:absolute;
-    
+    cursor : pointer;
     right : 15px;
     bottom : 30px;
 }
