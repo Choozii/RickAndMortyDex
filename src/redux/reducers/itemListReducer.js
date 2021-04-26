@@ -17,7 +17,7 @@ const initialState = {
         return {
           ...state,
           loading: false,
-          data: state.data.concat(action.payload),
+          data: state.data.concat(action.payload.map(item => ({...item, 'checked' : false}))),
           errorMsg: "",
         };
       case "ITEM_LIST_FAIL":

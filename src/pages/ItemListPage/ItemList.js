@@ -1,5 +1,4 @@
 import React from 'react';
-import CardItemListContainer from '../../container/CardItemListContainer';
 import FilteringToggleContainer from '../../container/FilteringToggleContainer';
 import styled from 'styled-components';
 import CharacterList from '../../container/CharacterList';
