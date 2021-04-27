@@ -1,7 +1,8 @@
-.AllCharacters{
+.character_list{
     display : flex;
     flex-flow : wrap;
     justify-content: space-around;
+    padding : 2rem;
 }
 .character_media{
     display :block;

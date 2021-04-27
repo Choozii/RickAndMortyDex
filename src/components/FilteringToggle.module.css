@@ -9,7 +9,11 @@
     align-items: center;
 }
 .checkbox_image{
-    width : fit-content;
+    all : unset;
+    width : 35px;
+    height : 35px;
+    cursor : pointer;
+    margin-left: 1rem;
 }
 .checkbox_label{
     color:black;

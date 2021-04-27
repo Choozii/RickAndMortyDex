@@ -1,5 +1,6 @@
 .character{
     border: solid 2px #faf9f9;
+    margin : 1rem;
 }
 .character_image_bookmark_wrapper{
     width : fit-content;
@@ -19,4 +20,13 @@
     cursor : pointer;
     right : 15px;
     bottom : 30px;
+    width : 35px;
+    height : 35px;
+
+    -webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.character_bookmark:hover{
+    opacity: .5;
 }

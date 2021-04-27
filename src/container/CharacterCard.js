@@ -6,31 +6,17 @@ import './CharacterCard.css';
 import { setBookmarkToggle } from '../redux/actions/itemActions'
 
 const CharacterCard = ({character, id}) => {    
-    const [bookmarkIconSrc, setBookmarkIconSrc] = useState(icon_bookmark_default);
+    //const [checked, setChecked] = useState(false);
     const filter = useSelector(state => state.itemList.filter);
     const dispatch = useDispatch();
+    const checked = useSelector(state => state.itemList.data[id-1].checked);
     const localStorageString = "RickAndMortyDex";
 
-    useEffect(()=>{
-        //console.log(localStorage.getItem(`${localStorageString}${id}`));
-        //console.log(`${localStorageString}${id}`)
-        localStorage.getItem(`${localStorageString}${id}`)
-
-        ? setBookmarkIconSrc(icon_bookmark_selected)
-        //console.log("icon")
-        : setBookmarkIconSrc(icon_bookmark_default);
-    },[filter])
-    
     const onClickHandle = () => {
-        bookmarkIconSrc === icon_bookmark_default
-        ? setBookmarkIconSrc(icon_bookmark_selected)
-        : setBookmarkIconSrc(icon_bookmark_default);
-
-
         dispatch(setBookmarkToggle(id));
         localStorage.getItem(`${localStorageString}${id}`)
         ? localStorage.removeItem(`${localStorageString}${id}`)
-        : localStorage.setItem(`${localStorageString}${id}`, JSON.stringify(character));
+        : localStorage.setItem(`${localStorageString}${id}`, JSON.stringify(character));    
     }
 
     return (
@@ -39,7 +25,9 @@ const CharacterCard = ({character, id}) => {
                 <div className="character_number">{id}</div>
                 <img className="character_image"src={character.image} alt="사진"></img>
                 <div onClick={onClickHandle}>
-                    <img className="character_bookmark"src={bookmarkIconSrc}></img>
+                    {checked
+                    ?<img className="character_bookmark"src={icon_bookmark_selected}></img>
+                    :<img className="character_bookmark"src={icon_bookmark_default}></img>}
                 </div>   
             </div>
             <div className="character_info">
