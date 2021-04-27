@@ -12,8 +12,12 @@ const CharacterCard = ({character, id}) => {
     const localStorageString = "RickAndMortyDex";
 
     useEffect(()=>{
+        //console.log(localStorage.getItem(`${localStorageString}${id}`));
+        //console.log(`${localStorageString}${id}`)
         localStorage.getItem(`${localStorageString}${id}`)
+
         ? setBookmarkIconSrc(icon_bookmark_selected)
+        //console.log("icon")
         : setBookmarkIconSrc(icon_bookmark_default);
     },[filter])
     
