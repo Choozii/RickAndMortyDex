@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState, useReducer, useCallback} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {getItemList} from '../redux/actions/itemActions';
-import './CharacterList.css';
+import styles from './CharacterList.module.css';
 import CharacterCard from './CharacterCard';
 
 const CharacterList = () => {
@@ -10,7 +10,6 @@ const CharacterList = () => {
   const storeData = useSelector((state) => state.itemList.data);
   const loading = useSelector(state => state.itemList.loading);
   const filter = useSelector(state => state.itemList.filter);
-  const localStorageString = "RickAndMortyDex";
 
   const observer = useRef();
 
@@ -50,7 +49,7 @@ const CharacterList = () => {
   , [loading]);
 
   return (
-    <div className="AllCharacters">
+    <div className={styles.wrapper}>
       {(storeData.length) === 0
         ? <div>Sorry, there's no Data</div>
         : <></>
@@ -58,7 +57,7 @@ const CharacterList = () => {
       {
       filter
       ?
-      <section className="character_list">
+      <section className={styles.characters}>
         {
           getBookmark().length === 0
           ?<div>There's no bookmarked character<br/> who is your favorate?</div>
@@ -69,7 +68,7 @@ const CharacterList = () => {
         } 
       </section>
       :
-      <section className="character_list">
+      <section className={styles.characters}>
         {storeData.map((character, idx) => 
         storeData.length === idx+1
         ?<div ref={lastCharacterRef}><CharacterCard  id={idx+1} character={character}/ > </div> : <CharacterCard id={idx + 1} character={character}/>)

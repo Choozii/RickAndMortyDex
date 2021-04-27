@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import icon_bookmark_default from '../assets/images/icon_bookmark_default.svg';
 import icon_bookmark_selected from '../assets/images/icon_bookmark_selected.svg';
-import './CharacterCard.css';
+import styles from './CharacterCard.module.css';
 import { setBookmarkToggle } from '../redux/actions/itemActions'
 
 const CharacterCard = ({character, id}) => {    
@@ -20,18 +20,18 @@ const CharacterCard = ({character, id}) => {
     }
 
     return (
-        <section className="character">
-            <div className="character_image_bookmark_wrapper">
-                <div className="character_number">{id}</div>
-                <img className="character_image"src={character.image} alt="사진"></img>
-                <div onClick={onClickHandle}>
+        <section className={styles.character}>
+            <div className={styles.wrapper}>
+                <div className={styles.id}>{id}</div>
+                <img className={styles.characterImg} src={character.image} alt="사진"></img>
+                <button className={styles.bookmarkButton} onClick={onClickHandle}>
                     {checked
-                    ?<img className="character_bookmark"src={icon_bookmark_selected}></img>
-                    :<img className="character_bookmark"src={icon_bookmark_default}></img>}
-                </div>   
+                    ?<img className={styles.bookmarkImg}src={icon_bookmark_selected}></img>
+                    :<img className={styles.bookmarkImg}src={icon_bookmark_default}></img>}
+                </button>   
             </div>
-            <div className="character_info">
-                <div className="character_info_name">{character.name}</div>
+            <div className={styles.characterInfo}>
+                <div className={styles.name}>{character.name}</div>
                 <div>{character.species}</div>
                 <div>{character.gender}</div>
             </div>
