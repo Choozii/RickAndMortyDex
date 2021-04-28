@@ -46,7 +46,7 @@ input:focus, button:focus{
 .searchButton:hover{
     background-color:white;
     border : 2px solid rgba(103, 156, 190, 0.5);    
-    transition: all .3s;
+    transition: all .5s;
 }
 
 .searchButton:active{

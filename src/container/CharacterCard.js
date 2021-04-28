@@ -4,6 +4,7 @@ import icon_bookmark_default from '../assets/images/icon_bookmark_default.svg';
 import icon_bookmark_selected from '../assets/images/icon_bookmark_selected.svg';
 import styles from './CharacterCard.module.css';
 import { setBookmarkToggle } from '../redux/actions/itemActions'
+import { Link } from 'react-router-dom';
 
 const CharacterCard = ({character, id}) => {    
     //const [checked, setChecked] = useState(false);
@@ -34,6 +35,7 @@ const CharacterCard = ({character, id}) => {
                 <div className={styles.name}>{character.name}</div>
                 <div>{character.species}</div>
                 <div>{character.gender}</div>
+                <Link className={styles.link} to={`/character/${character.name}`}>DETAIL</Link>
             </div>
         </section>
     );

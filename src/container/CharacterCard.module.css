@@ -1,6 +1,7 @@
 .character{
-    border: solid 2px #faf9f9;
+    border: solid 2px hsl(0, 9%, 98%);
     margin : 1rem;
+    position:relative;
 }
 .wrapper{
     width : fit-content;
@@ -31,5 +32,24 @@
 	transition: .3s ease-in-out;
 }
 .bookmarkImg:hover{
+    opacity: .5;
+}
+.link{
+    all:unset;
+    position:absolute;
+    right : 15px;
+    bottom : 15px;
+    font-size: small;
+    color : rgb(199, 199, 199);
+    padding : 6px;
+    border-radius: 5px;
+    border : 1px solid rgb(199, 199, 199);
+    cursor : pointer;
+}
+.link:hover{
+    color :rgb(48, 136, 106);
+    border : 1px solid rgb(48, 136, 106);
+}
+.link:active{
     opacity: .5;
 }
