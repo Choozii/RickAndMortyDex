@@ -7,6 +7,7 @@ export const getItemList = (charaterList) => async (dispatch) => {
     });
   
     const res = await axios.get(`https://rickandmortyapi.com/api/character/${charaterList}`);
+    console.log(res);
     dispatch({
       type: "ITEM_LIST_SUCCESS",
       payload: res.data,

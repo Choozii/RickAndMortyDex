@@ -1,8 +1,9 @@
 import React, {useEffect, useRef, useState, useReducer, useCallback} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getItemList} from '../redux/actions/itemActions';
+import {getItemList} from '../../redux/actions/itemActions'
 import styles from './CharacterList.module.css';
-import CharacterCard from './CharacterCard';
+import CharacterCard from '../../container/CharacterCard';
+import FilteringToggleContainer from '../../container/FilteringToggleContainer';
 
 const CharacterList = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,6 @@ const CharacterList = () => {
   const storeData = useSelector((state) => state.itemList.data);
   const loading = useSelector(state => state.itemList.loading);
   const filter = useSelector(state => state.itemList.filter);
-
   const observer = useRef();
 
   useEffect(() => {
@@ -38,7 +38,6 @@ const CharacterList = () => {
     if (observer.current) 
       observer.current.disconnect();
     observer.current = new IntersectionObserver(entries => {
-
       if (entries[0].isIntersecting) {
         setIndex(index => index.map(elem => elem + 12));
       }
@@ -48,7 +47,8 @@ const CharacterList = () => {
     }
   , [loading]);
 
-  return (
+  return (<>
+   <FilteringToggleContainer/>
     <div className={styles.wrapper}>
       {(storeData.length) === 0
         ? <div>Sorry, there's no Data</div>
@@ -71,8 +71,9 @@ const CharacterList = () => {
       <section className={styles.characters}>
         {storeData.map((character, idx) => 
         storeData.length === idx+1
-        ?<div ref={lastCharacterRef}><CharacterCard  id={idx+1} character={character}/ > </div> : <CharacterCard id={idx + 1} character={character}/>)
-        } 
+        ?<div ref={lastCharacterRef}>
+          <CharacterCard id={idx+1} character={character}/ > </div> : <CharacterCard id={idx + 1} character={character}/>
+          )} 
       </section>
       }
       {
@@ -81,7 +82,9 @@ const CharacterList = () => {
         : <></>
       }
     </div>
+    </>
     )
+ 
   }
 
 export default CharacterList;
