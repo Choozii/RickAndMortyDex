@@ -4,9 +4,7 @@ import styles from './CharacterDetail.module.css';
 
 const CharacterDetail = ({characterInfo}) => {
     return (
-        <div> 
-            characterInfo
-            ? <div className={styles.wrapper}>
+             <div className={styles.wrapper}>
                 <img src={characterInfo.image} className={styles.image}></img>
                 <div className={styles.name}>{characterInfo.name}{characterInfo.status==="Alive"?<img title="alive" className={styles.alive}></img>:<img title="dead" className={styles.dead}></img>}</div>
                 <div></div>
@@ -16,7 +14,6 @@ const CharacterDetail = ({characterInfo}) => {
                 <div>Last known location is {characterInfo.location.name}👽</div>
                 <Accordion title="episode" contents={characterInfo.episode}/>
             </div>
-        </div>
     );
 };
 

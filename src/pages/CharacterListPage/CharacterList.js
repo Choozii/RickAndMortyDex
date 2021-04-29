@@ -12,7 +12,7 @@ const CharacterList = () => {
   const loading = useSelector(state => state.itemList.loading);
   const filter = useSelector(state => state.itemList.filter);
   const observer = useRef();
-
+  
   useEffect(() => {
     dispatch(getItemList(index));
   }, [index])

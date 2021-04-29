@@ -4,7 +4,7 @@ import icon_bookmark_selected from '../assets/images/icon_bookmark_selected.svg'
 import styles from './CharacterCard.module.css';
 import { Link } from 'react-router-dom';
 
-const CharacterCard = ({character, checked, onClickHandle}) => {    
+const CharacterCard = ({character, checked, onClickHandle, moveToDetail}) => {    
     return (
         <section className={styles.character}>
             <div className={styles.wrapper}>
@@ -18,7 +18,7 @@ const CharacterCard = ({character, checked, onClickHandle}) => {
             </div>
             <div className={styles.characterInfo}>
                 <div>{character.status==="Alive"?<img title="alive" className={styles.alive}></img>:<img title="dead" className={styles.dead}></img>}</div>
-                <div className={styles.name}>{character.name}</div>
+                <div className={styles.name} onClick={moveToDetail}>{character.name}</div>
                 <div>{character.species}</div>
                 <div>{character.gender}</div>
                 <Link className={styles.link} to={`/character/${character.name}`}>DETAIL</Link>
