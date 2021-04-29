@@ -3,21 +3,46 @@ import axios from "axios";
 export const getItemList = (charaterList) => async (dispatch) => {
   try {
     dispatch({
-      type: "ITEM_LIST_LOADING",
+      type: "LOADING",
     });
   
     const res = await axios.get(`https://rickandmortyapi.com/api/character/${charaterList}`);
-    console.log(res);
     dispatch({
       type: "ITEM_LIST_SUCCESS",
       payload: res.data,
     });
   } catch (e) {
     dispatch({
-      type: "ITEM_LIST_FAIL",
+      type: "LOADING_FAIL",
     });
   }
 };
+
+export const getSearchResult = (searchWord) => async (dispatch) => {
+  try {
+    dispatch({
+      type: "LOADING",
+    });
+    let cancel;
+    const res = await axios({
+            method: 'GET',
+            url: 'https://rickandmortyapi.com/api/character',
+            params: {
+                name: searchWord
+            },
+            cancelToken: new axios.CancelToken(c => cancel = c)
+        });
+    dispatch({
+      type: "SEARCH_SUCCESS",
+      payload: res.data,
+    });
+  } catch (e) {
+    dispatch({
+      type: "LOADING_FAIL",
+    });
+  }
+};
+
 
 export const setBookmarkToggle = (id) => async (dispatch) => {
   dispatch({

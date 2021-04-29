@@ -1,30 +1,40 @@
 const initialState = {
     loading: false,
     data: [],
-    errorMsg: "",
+    searchData:[],
+    error: false,
     filter: false,
   };
   
   const itemListReducer = (state = initialState, action) => {
     switch (action.type) {
-      case "ITEM_LIST_LOADING":
+      case "LOADING":
         return {
           ...state,
           loading: true,
-          errorMsg: "",
+          error: false,
         };
       case "ITEM_LIST_SUCCESS":
         return {
           ...state,
           loading: false,
           data: state.data.concat(action.payload.map(item => ({...item, 'checked' : false}))),
-          errorMsg: "",
+          error: false,
         };
-      case "ITEM_LIST_FAIL":
+      case "SEARCH_SUCCESS":
+        return{
+          ...state,
+          loading : false,
+          error:false,
+          filter:false,
+          searchData:action.payload.results
+        }
+      case "LOADING_FAIL":
         return {
           ...state,
           loading: false,
-          errorMsg: "error in 아이템 불러오기",
+          searchData:[],
+          error: true,
         };
       case "BOOKMARK_TOGGLE":
         return {

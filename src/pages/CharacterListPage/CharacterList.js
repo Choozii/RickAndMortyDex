@@ -7,12 +7,25 @@ import FilteringToggleContainer from '../../container/FilteringToggleContainer';
 
 const CharacterList = () => {
   const dispatch = useDispatch();
-  const [index,setIndex] = useState([1,2,3,4,5,6,7,8,9,10,11,12]); //렌더링을 위한 캐릭터 번호 저장
+  const [index,setIndex] = useState(); //렌더링을 위한 캐릭터 번호 저장
   const storeData = useSelector((state) => state.itemList.data);
   const loading = useSelector(state => state.itemList.loading);
+  const error = useSelector(state => state.itemList.error);
   const filter = useSelector(state => state.itemList.filter);
   const observer = useRef();
+  let fetchIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 
   
+  useEffect(()=>{
+    //화면에 처음 접속한 경우
+    if(storeData.length === 0)
+      setIndex(fetchIndex);
+    //다른 화면에서 돌아온 경우는 스토어 내부의 데이터 길이를 참조해서 인덱스를 구함
+    else if(storeData.length !== 0){
+      fetchIndex = fetchIndex.map(idx => idx+storeData.length+1)
+      setIndex(fetchIndex);
+    }
+  },[])
+
   useEffect(() => {
     dispatch(getItemList(index));
   }, [index])

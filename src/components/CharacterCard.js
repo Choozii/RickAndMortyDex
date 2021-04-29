@@ -21,7 +21,7 @@ const CharacterCard = ({character, checked, onClickHandle, moveToDetail}) => {
                 <div className={styles.name} onClick={moveToDetail}>{character.name}</div>
                 <div>{character.species}</div>
                 <div>{character.gender}</div>
-                <Link className={styles.link} to={`/character/${character.name}`}>DETAIL</Link>
+                <button className={styles.link} onClick={moveToDetail}>DETAIL</button>
             </div>
         </section>
     );
