@@ -6,7 +6,6 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-
     {/* ===== routing ===== */}
     <Switch>
       <Route path="/" exact component={CharacterList}></Route>

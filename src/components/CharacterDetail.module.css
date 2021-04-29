@@ -1,0 +1,36 @@
+.wrapper{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image{
+    width : 600px;
+    height : 600px;
+    border-radius: 50%;
+}
+
+.name{
+    margin-top: 40px;
+    display : flex;
+}
+
+.episode{
+    line-height: 10px;
+}
+
+.alive{
+    margin-left: 10px;
+    width : 5px;
+    height : 5px;
+    background-color: rgb(26, 202, 26);
+    border-radius: 50%;
+}
+
+.dead{
+    margin-left: 10px;
+    width : 5px;
+    height : 5px;
+    background-color: rgb(219, 141, 38);
+    border-radius: 50%;
+}

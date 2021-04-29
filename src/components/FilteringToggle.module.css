@@ -8,6 +8,7 @@
     display : flex;
     align-items: center;
 }
+
 .checkboxImage{
     all : unset;
     width : 35px;
@@ -15,6 +16,7 @@
     cursor : pointer;
     margin-left: 1rem;
 }
+
 .checkboxLabel{
     color:black;
 }

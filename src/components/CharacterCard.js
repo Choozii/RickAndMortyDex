@@ -8,7 +8,7 @@ const CharacterCard = ({character, checked, onClickHandle}) => {
     return (
         <section className={styles.character}>
             <div className={styles.wrapper}>
-                <div className={styles.id}>{id}</div>
+                <div className={styles.id}>{character.id}</div>
                 <img className={styles.characterImg} src={character.image} alt="사진"></img>
                 <button className={styles.bookmarkButton} onClick={onClickHandle}>
                     {checked

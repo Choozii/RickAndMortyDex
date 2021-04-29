@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState, useReducer, useCallback} from 'react
 import {useDispatch, useSelector} from "react-redux";
 import {getItemList} from '../../redux/actions/itemActions'
 import styles from './CharacterList.module.css';
-import CharacterCard from '../../container/CharacterCard';
+import CharacterCardContainer from '../../container/CharacterCardContainer';
 import FilteringToggleContainer from '../../container/FilteringToggleContainer';
 
 const CharacterList = () => {
@@ -47,34 +47,32 @@ const CharacterList = () => {
     }
   , [loading]);
 
-  return (<>
-   <FilteringToggleContainer/>
+  return (
+    <>
+     <FilteringToggleContainer/>
     <div className={styles.wrapper}>
       {(storeData.length) === 0
         ? <div>Sorry, there's no Data</div>
-        : <></>
-      }
+        : <></>}
       {
       filter
-      ?
-      <section className={styles.characters}>
+      ?(<section className={styles.characters}>
         {
           getBookmark().length === 0
           ?<div>There's no bookmarked character<br/> who is your favorate?</div>
           :<></>
         }{
         getBookmark().map(character=>
-        <CharacterCard id={character.id} character={character}/ >)
+        <CharacterCardContainer id={character.id} character={character}/ >)
         } 
-      </section>
-      :
-      <section className={styles.characters}>
+      </section>)
+      :(<section className={styles.characters}>
         {storeData.map((character, idx) => 
         storeData.length === idx+1
         ?<div ref={lastCharacterRef}>
-          <CharacterCard id={idx+1} character={character}/ > </div> : <CharacterCard id={idx + 1} character={character}/>
+          <CharacterCardContainer id={idx+1} character={character}/ > </div> : <CharacterCardContainer id={idx + 1} character={character}/>
           )} 
-      </section>
+      </section>)
       }
       {
         loading
@@ -83,8 +81,8 @@ const CharacterList = () => {
       }
     </div>
     </>
-    )
- 
-  }
+    )}
 
 export default CharacterList;
+
+
