@@ -10,13 +10,19 @@
     position : relative;
 }
 
+.characterImg{
+    cursor : pointer;
+}
+
 .characterInfo{
     color : rgb(107, 105, 105);
     line-height: .6rem;
 }
+
 .name{
     width : fit-content;
 }
+
 .name:hover{
     color : rgb(113, 169, 206);
     cursor:pointer;

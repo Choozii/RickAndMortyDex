@@ -5,7 +5,7 @@ import styles from './CharacterDetail.module.css';
 const CharacterDetail = ({characterInfo}) => {
     return (
              <div className={styles.wrapper}>
-                <img src={characterInfo.image} className={styles.image}></img>
+                <div className={styles.imageBack}><img src={characterInfo.image} className={styles.image}></img></div>
                 <div className={styles.name}>{characterInfo.name}{characterInfo.status==="Alive"?<img title="alive" className={styles.alive}></img>:<img title="dead" className={styles.dead}></img>}</div>
                 <div></div>
                 <div>{characterInfo.species}</div>

@@ -9,7 +9,7 @@ const CharacterCard = ({character, checked, onClickHandle, moveToDetail}) => {
         <section className={styles.character}>
             <div className={styles.wrapper}>
                 <div className={styles.id}>{character.id}</div>
-                <img className={styles.characterImg} src={character.image} alt="사진"></img>
+                <img className={styles.characterImg} src={character.image} onClick={moveToDetail} alt="사진"></img>
                 <button className={styles.bookmarkButton} onClick={onClickHandle}>
                     {checked
                     ?<img className={styles.bookmarkImg}src={icon_bookmark_selected}></img>
