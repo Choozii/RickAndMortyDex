@@ -72,7 +72,7 @@ const CharacterList = () => {
       ?(<section className={styles.characters}>
         {
           getBookmark().length === 0
-          ?<div>There's no bookmarked character<br/> who is your favorate?</div>
+          ?<div className={styles.noBookmark}><p>There's no bookmarked character<br/> who is your favorate?</p></div>
           :<></>
         }{
         getBookmark().map(character=>
@@ -83,7 +83,7 @@ const CharacterList = () => {
         {storeData.map((character, idx) => 
         storeData.length === idx+1
         ?<div ref={lastCharacterRef}>
-          <CharacterCardContainer id={idx+1} character={character}/ > </div> : <CharacterCardContainer id={idx + 1} character={character}/>
+          <CharacterCardContainer id={character.id} character={character}/ > </div> : <CharacterCardContainer id={idx + 1} character={character}/>
           )} 
       </section>)
       }

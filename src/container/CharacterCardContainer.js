@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setBookmarkToggle } from '../redux/actions/itemActions';
@@ -9,6 +9,12 @@ const CharacterCardContainer = ({character, id}) => {
     const localStorageString = "RickAndMortyDex";
     const [checked, setChecked] = useState(false);
     const history = useHistory();
+
+    useEffect(()=>{
+        localStorage.getItem(`${localStorageString}${id}`)
+        ?setChecked(true)
+        :setChecked(false)
+    },[]);
 
     const moveToDetail = () => {
         history.push({
@@ -22,9 +28,7 @@ const CharacterCardContainer = ({character, id}) => {
         ? localStorage.removeItem(`${localStorageString}${id}`)
         : localStorage.setItem(`${localStorageString}${id}`, JSON.stringify(character));    
         
-        localStorage.getItem(`${localStorageString}${id}`)
-        ?setChecked(true)
-        :setChecked(false)
+        setChecked(!checked);
     }
 
     return <CharacterCard character={character} checked={checked} onClickHandle={onClickHandle} moveToDetail={moveToDetail}/>;

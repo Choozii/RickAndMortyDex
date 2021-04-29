@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {useSelector} from "react-redux";
-import {useHistory, useLocation} from 'react-router-dom';
-import styles from './Character.module.css';
+import {useLocation} from 'react-router-dom';
 import CharacterDetail from '../../components/CharacterDetail';
+import Header from '../../components/Header';
 
-const Character = (props) => {
-
-  const history = useHistory();
+const Character = () => {
   const location = useLocation();
   console.log(location);
   const character = location.state.character;
@@ -15,13 +12,9 @@ const Character = (props) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const movePage = () => {
-    history.goBack();
-  }
-
   return ( 
   <> 
-    <button className={styles.back} onClick={movePage}>BACK</button> 
+    <Header/>
     <CharacterDetail characterInfo={character}/>
   </>
 )};

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useHistory } from 'react-router-dom';
+import Header from '../../components/Header';
 import SearchResult from '../../components/SearchResult';
 import { getSearchResult } from '../../redux/actions/itemActions';
 import styles from './Searching.module.css';
@@ -22,9 +23,7 @@ const Searching = () => {
 
     return (
     <>
-        <header>
-            <button className={styles.back} onClick={movePage}>BACK</button> 
-        </header>
+        <Header/>
         <div className={styles.wrapper}>
         <section className={styles.section}>
             {searchData.length === 0?<div className={styles.labelWrapper}>

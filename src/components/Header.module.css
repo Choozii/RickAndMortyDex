@@ -1,0 +1,21 @@
+.header{
+    z-index:10;
+    position: fixed;
+    width : 80px;
+    display:flex;
+    align-items: center;
+    top : 0;
+    left : 0;
+    border-bottom: 2px solid rgba(103, 156, 190, 0.5);
+    height : 50px;
+}
+.back{
+    all : unset;
+    cursor : pointer;
+    padding-left : 10px;
+    width : 80px;
+}
+.back:hover{
+    background-color: rgb(215, 231, 250);
+    transition: .5s ease;
+}
