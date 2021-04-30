@@ -5,7 +5,6 @@ import Header from '../../components/Header';
 
 const Character = () => {
   const location = useLocation();
-  console.log(location);
   const character = location.state.character;
   
   useEffect(() => {

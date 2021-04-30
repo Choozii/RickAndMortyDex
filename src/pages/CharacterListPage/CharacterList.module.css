@@ -13,7 +13,15 @@
 }
 .noBookmark{
     width : 100%;
+    margin-top: 200px;
     display : flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.noBookmarkImg{
+    opacity : 0.7;
+    width : 500px;
+    border-radius: 50%;
 }

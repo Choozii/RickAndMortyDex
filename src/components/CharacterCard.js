@@ -5,6 +5,7 @@ import styles from './CharacterCard.module.css';
 import { Link } from 'react-router-dom';
 
 const CharacterCard = ({character, checked, onClickHandle, moveToDetail}) => {    
+    //console.log(`${character.id}의 status in card: ${checked}` );
     return (
         <section className={styles.character}>
             <div className={styles.wrapper}>

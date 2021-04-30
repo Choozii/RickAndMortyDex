@@ -4,6 +4,8 @@ import {getItemList} from '../../redux/actions/itemActions'
 import styles from './CharacterList.module.css';
 import CharacterCardContainer from '../../container/CharacterCardContainer';
 import FilteringToggleContainer from '../../container/FilteringToggleContainer';
+import Greetings from '../../assets/images/greetings.png';
+import { gsap } from "gsap";
 
 const CharacterList = () => {
   const dispatch = useDispatch();
@@ -14,15 +16,21 @@ const CharacterList = () => {
   const filter = useSelector(state => state.itemList.filter);
   const observer = useRef();
   let fetchIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 
-  
+  const greetingRef = useRef(null);
+
+  useEffect(() => {  
+    gsap.from(greetingRef.current, {
+      opacity : 0, duration : 1, delay : .4, x: -30
+    });
+}, [filter]);
+
   useEffect(()=>{
     //화면에 처음 접속한 경우
     if(storeData.length === 0)
       setIndex(fetchIndex);
     //다른 화면에서 돌아온 경우는 스토어 내부의 데이터 길이를 참조해서 인덱스를 구함
     else if(storeData.length !== 0){
-      fetchIndex = fetchIndex.map(idx => idx+storeData.length+1)
-      setIndex(fetchIndex);
+      fetchIndex = fetchIndex.map(idx => idx+storeData.length)
     }
   },[])
 
@@ -52,7 +60,8 @@ const CharacterList = () => {
       observer.current.disconnect();
     observer.current = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
-        setIndex(index => index.map(elem => elem + 12));
+        fetchIndex = fetchIndex.map(idx => idx+storeData.length)
+        setIndex(fetchIndex);
       }
     })
     if (node) 
@@ -72,7 +81,10 @@ const CharacterList = () => {
       ?(<section className={styles.characters}>
         {
           getBookmark().length === 0
-          ?<div className={styles.noBookmark}><p>There's no bookmarked character<br/> who is your favorate?</p></div>
+          ?<div ref={greetingRef} className={styles.noBookmark}>
+            <img className={styles.noBookmarkImg} src={Greetings}></img>
+            <p>NO BOOKMARK</p>
+            </div>
           :<></>
         }{
         getBookmark().map(character=>
