@@ -22,3 +22,17 @@
     color:black;
 }
 
+@media screen and (max-width: 426px){
+    .checkboxImage{
+        width : 30px;
+        height : 30px;
+        margin-left: .5rem;
+    }
+    .checkboxImage img{
+        width : 30px;
+        height : 30px;
+    }
+    .checkboxLabel{
+        font-size: small;
+    }
+}

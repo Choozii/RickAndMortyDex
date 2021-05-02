@@ -1,6 +1,5 @@
 import styles from './SearchInput.module.css';
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 
 const SearchInput = () => {

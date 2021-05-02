@@ -93,3 +93,13 @@
     background-color: rgb(219, 141, 38);
     border-radius: 50%;
 }
+
+@media screen and (max-width : 425px){
+    .character{
+        margin-bottom : 10px;
+    }
+    .characterImg{
+        width : 200px;
+        height : 200px;
+    }
+}

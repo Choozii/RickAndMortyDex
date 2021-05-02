@@ -2,7 +2,6 @@ import React from 'react';
 import icon_bookmark_default from '../assets/images/icon_bookmark_default.svg';
 import icon_bookmark_selected from '../assets/images/icon_bookmark_selected.svg';
 import styles from './CharacterCard.module.css';
-import { Link } from 'react-router-dom';
 
 const CharacterCard = ({character, checked, onClickHandle, moveToDetail}) => {    
     //console.log(`${character.id}의 status in card: ${checked}` );
@@ -13,12 +12,12 @@ const CharacterCard = ({character, checked, onClickHandle, moveToDetail}) => {
                 <img className={styles.characterImg} src={character.image} onClick={moveToDetail} alt="사진"></img>
                 <button className={styles.bookmarkButton} onClick={onClickHandle}>
                     {checked
-                    ?<img className={styles.bookmarkImg}src={icon_bookmark_selected}></img>
-                    :<img className={styles.bookmarkImg}src={icon_bookmark_default}></img>}
+                    ?<img alt="아이콘:북마크 선택됨" lassName={styles.bookmarkImg}src={icon_bookmark_selected}></img>
+                    :<img alt="아이콘:북마크 해제됨" className={styles.bookmarkImg}src={icon_bookmark_default}></img>}
                 </button>   
             </div>
             <div className={styles.characterInfo}>
-                <div>{character.status==="Alive"?<img title="alive" className={styles.alive}></img>:<img title="dead" className={styles.dead}></img>}</div>
+                <div>{character.status==="Alive"?<div title="alive" className={styles.alive}></div>:<div title="dead" className={styles.dead}></div>}</div>
                 <div className={styles.name} onClick={moveToDetail}>{character.name}</div>
                 <div>{character.species}</div>
                 <div>{character.gender}</div>

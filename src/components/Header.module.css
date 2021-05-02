@@ -17,5 +17,5 @@
 }
 .back:hover{
     background-color: rgb(215, 231, 250);
-    transition: .5s ease;
+    transition: 1s ease;
 }

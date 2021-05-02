@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Header from '../../components/Header';
-import SearchResult from '../../components/SearchResult';
 import { getSearchResult } from '../../redux/actions/itemActions';
 import styles from './Searching.module.css';
 import NoResult from '../../assets/images/noResultImage.png';
 import gsap from "gsap";
+import CharacterCardContainter from '../../container/CharacterCardContainer';
 
 const Searching = () => {
     const dispatch = useDispatch();
@@ -35,8 +35,7 @@ const Searching = () => {
                 <img className={styles.noResultImg} src={NoResult}></img>
                 <p className={styles.noResult}>NO RESULT</p></div>:<></>}
             {searchData.map(result => 
-                <SearchResult character={result} id={result.id}/>
-            )}        
+                <CharacterCardContainter character={result}/>)}        
         </section>
         </div>
     </>

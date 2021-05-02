@@ -12,8 +12,9 @@ input:focus, button:focus{
 }
 .searchBar{
     position : absolute;
-    right : 0;
+    right : 2.6%;
 }
+
 .searchButton{
     background-color: transparent;
     border-radius: 6px;
@@ -32,4 +33,21 @@ input:focus, button:focus{
 .searchButton:active{
     background-color: rgba(103, 156, 190, 0.5);
     transition: all .3s;
+}
+
+/* ===== for mobile ===== */
+@media screen and (max-width: 426px){
+    .searchBar{
+        right : 0;
+    }
+    .searchBar input{
+        height: 35px;
+        width: 130px;
+    }
+    .searchButton{
+        width : 50px;
+        font-size: 4px;
+        padding : 8px 2px 8px 2px;
+        
+  }
 }
