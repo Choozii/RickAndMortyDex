@@ -22,5 +22,7 @@ In RickAndMortyDex directory,
  ### CharacterCard
     - 캐릭터 한 명의 이미지와 정보를 관리하는 코드
     - 즐겨찾기 기능을 관리하는 부분 
- ### CharacterList
-    - 캐릭터 카드들의 모음(List)를 관리하는 코드
+ ### CharacterDetail
+    - 한 캐릭터의 자세한 정보를 보여주는 컴포넌트
+ ### Searching
+    - 검색 결과를 보여주는 페이지
