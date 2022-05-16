@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
+    "gh-pages": "^4.0.0",
     "gsap": "^3.6.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -24,8 +25,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "deploy": "gh-pages -d build",
+    "predeploy": "yarn run build"
   },
   "eslintConfig": {
     "extends": [
@@ -33,6 +34,7 @@
       "react-app/jest"
     ]
   },
+  "homepage": "https://Choozii.github.io/RickAndMortyDex",
   "browserslist": {
     "production": [
       ">0.2%",
