@@ -1,28 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
-:root{
---breakpoint-mobile : 335px;
---breakpoint-mobile-big : 426px;
---breakpoint-tablet : 768px;
---breakpoint-desktop : 1024px;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap');
+:root {
+  --breakpoint-mobile: 335px;
+  --breakpoint-mobile-big: 426px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
 }
 
 * {
   box-sizing: border-box;
-  font-family: 'Exo 2', sans-serif;
-  padding : 0.313rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  padding: 0.313rem;
 }
 ul,
-li{
+li {
   text-decoration: none;
-  list-style:none;
-
+  list-style: none;
 }
-.App{
-  margin:px 0 31px 0;
+.App {
   user-select: none;
 }
 
-body{
+body {
   /* background-image: url("./assets//images/background.jpg");
   background-size:auto; */
 }
