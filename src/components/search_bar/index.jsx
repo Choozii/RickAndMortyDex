@@ -1,35 +1,26 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router';
 import styled from '@emotion/styled';
 import { color } from '@constants/color';
 
-const SearchBar = () => {
+const SearchBar = ({ placeholder, onCallback }) => {
   const [words, setWords] = useState('');
-  const history = useHistory();
   const ENTER_KEY = 13;
   const getWords = e => {
     setWords(e.target.value);
   };
-  const fetchSearchResult = () => {
+  const onSearch = () => {
+    onCallback();
     setWords('');
-    history.push({
-      pathname: `searching/${words}`,
-      state: { words: words },
-    });
   };
+
   const handleKeyDown = () => {
-    if (window.event.keyCode === ENTER_KEY) fetchSearchResult();
+    if (window.event.keyCode === ENTER_KEY) onSearch();
   };
+
   return (
     <SearchBarContainer>
-      <Input
-        type="search"
-        onKeyDown={handleKeyDown}
-        placeholder="캐릭터를 검색해보세요!"
-        value={words}
-        onChange={getWords}
-      />
-      <SearchButton type="submit" onClick={fetchSearchResult}>
+      <Input type="search" onKeyDown={handleKeyDown} placeholder={placeholder} value={words} onChange={getWords} />
+      <SearchButton type="submit" onClick={onSearch}>
         검색
       </SearchButton>
     </SearchBarContainer>
@@ -45,7 +36,6 @@ const SearchBarContainer = styled.div`
 const Input = styled.input`
   height: auto;
   border: 1px solid gray;
-  width: 50%;
   border-radius: 6px;
   margin-right: 5px;
 `;

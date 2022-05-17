@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getItemList } from '../../redux/actions/itemActions';
 import styles from './CharacterList.module.css';
 import CharacterCardContainer from '../../container/CharacterCardContainer';
-import FilteringToggleContainer from '../../container/FilteringToggleContainer';
+// import FilteringToggleContainer from '../../container/FilteringToggleContainer';
 import Greetings from '../../assets/images/greetings.png';
 import { gsap } from 'gsap';
+import Header from './components/Header';
 
 const CharacterList = () => {
   const dispatch = useDispatch();
@@ -70,7 +71,7 @@ const CharacterList = () => {
 
   return (
     <>
-      <FilteringToggleContainer />
+      <Header />
       <div className={styles.wrapper}>
         {storeData.length === 0 ? <div>Sorry, there's no Data</div> : <></>}
         {filter ? (
