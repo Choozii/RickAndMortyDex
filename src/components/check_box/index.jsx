@@ -27,6 +27,7 @@ const CheckBoxWrapper = styled.div`
   justify-content: center;
 `;
 const Label = styled.span`
+  margin-left: 6px;
   font-weight: 500;
   font-size: 15px;
   line-height: 22px;

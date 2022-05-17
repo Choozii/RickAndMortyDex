@@ -19,14 +19,14 @@ const CharacterList = () => {
   let fetchIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const greetingRef = useRef(null);
 
-  useEffect(() => {
-    gsap.from(greetingRef.current, {
-      opacity: 0,
-      duration: 1,
-      delay: 0.4,
-      x: -30,
-    });
-  }, [filter]);
+  // useEffect(() => {
+  //   gsap.from(greetingRef.current, {
+  //     opacity: 0,
+  //     duration: 1,
+  //     delay: 0.4,
+  //     x: -30,
+  //   });
+  // }, [filter]);
 
   useEffect(() => {
     //화면에 처음 접속한 경우
@@ -38,6 +38,7 @@ const CharacterList = () => {
   }, []);
 
   useEffect(() => {
+    if (!index) return;
     dispatch(getItemList(index));
   }, [index]);
 
@@ -71,17 +72,19 @@ const CharacterList = () => {
 
   const RenderCharaterCards = () => {
     return (
-      <CharaterWrapper>
+      <CardsContainer>
         {storeData.map((character, idx) =>
           storeData.length === idx + 1 ? (
-            <div ref={lastCharacterRef}>
+            <CardWrapper ref={lastCharacterRef}>
               <CharacterCardContainer id={character.id} character={character} />
-            </div>
+            </CardWrapper>
           ) : (
-            <CharacterCardContainer id={idx + 1} character={character} />
+            <CardWrapper>
+              <CharacterCardContainer id={idx + 1} character={character} />
+            </CardWrapper>
           )
         )}
-      </CharaterWrapper>
+      </CardsContainer>
     );
   };
 
@@ -105,18 +108,25 @@ const CharacterList = () => {
   return (
     <>
       <Header />
-      <Container>
+      <StyledContainer>
         {storeData.length === 0 && <div>Sorry, there's no Data</div>}
         {filter ? <RenderFilteredCharacterCards /> : <RenderCharaterCards />}
         {loading ? <div>...loading</div> : <></>}
-      </Container>
+      </StyledContainer>
     </>
   );
 };
 
 export default CharacterList;
 
-const CharaterWrapper = styled.div`
+const StyledContainer = styled(Container)`
+  margin: 63px auto;
+`;
+const CardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+`;
+const CardWrapper = styled.div`
+  margin: 10px;
 `;

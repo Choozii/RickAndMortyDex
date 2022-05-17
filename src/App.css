@@ -14,7 +14,7 @@
 ul,
 li {
   text-decoration: none;
-  list-style: none;
+  list-style: circle;
 }
 .App {
   user-select: none;

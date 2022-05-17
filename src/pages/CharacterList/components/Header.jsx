@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { useHistory } from 'react-router';
 import Checkbox from '@components/check_box/index.jsx';
 import HeaderContainer from '@components/header/index';
+import love_icon from '@assets/images/love_icon.svg';
 
 const Header = ({ handleClick, checked }) => {
   const history = useHistory();
@@ -16,10 +17,18 @@ const Header = ({ handleClick, checked }) => {
 
   return (
     <HeaderContainer>
-      <Checkbox title="즐겨찾기" checked={checked} onClick={handleClick} />
-      <SearchInput placeholder="캐릭터를 검색해보세요!" onCallback={words => fetchSearchResult(words)} />
+      <Wrapper>
+        <Checkbox title="즐겨찾기" checked={checked} onClick={handleClick} />
+      </Wrapper>
+      <Wrapper>
+        <SearchInput placeholder="캐릭터를 검색해보세요!" onCallback={words => fetchSearchResult(words)} />
+      </Wrapper>
     </HeaderContainer>
   );
 };
 
 export default Header;
+
+const Wrapper = styled.div`
+  padding: 5px 0;
+`;

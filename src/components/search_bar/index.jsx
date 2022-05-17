@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { color } from '@constants/color';
+import { SolidButton } from '@components/button';
 
 const SearchBar = ({ placeholder, onCallback }) => {
   const [words, setWords] = useState('');
   const ENTER_KEY = 13;
-  const getWords = e => {
-    setWords(e.target.value);
+
+  const setWordState = ({ target }) => {
+    setWords(target.value);
   };
+
   const onSearch = () => {
+    if (words == null) return;
     onCallback();
     setWords('');
   };
@@ -19,10 +22,10 @@ const SearchBar = ({ placeholder, onCallback }) => {
 
   return (
     <SearchBarContainer>
-      <Input type="search" onKeyDown={handleKeyDown} placeholder={placeholder} value={words} onChange={getWords} />
-      <SearchButton type="submit" onClick={onSearch}>
+      <Input type="search" onKeyDown={handleKeyDown} placeholder={placeholder} value={words} onChange={setWordState} />
+      <SolidButton onClick={onSearch} className={words == '' ? 'disabled' : 'default'}>
         검색
-      </SearchButton>
+      </SolidButton>
     </SearchBarContainer>
   );
 };
@@ -38,19 +41,4 @@ const Input = styled.input`
   border: 1px solid gray;
   border-radius: 6px;
   margin-right: 5px;
-`;
-const SearchButton = styled.button`
-  font-weight: 700;
-  color: ${color.white};
-  padding: 10px 30px;
-  background-color: ${color.gray[300]};
-  border-radius: 6px;
-  border: none;
-  outline: none;
-  :hover {
-    background-color: ${color.gray[600]};
-  }
-  :active {
-    background-color: ${color.gray[400]};
-  }
 `;
