@@ -4,15 +4,9 @@ import AppRouter from './routes/router';
 function App() {
   return (
     <div className="App">
-      <Container>
-        <AppRouter />
-      </Container>
+      <AppRouter />
     </div>
   );
 }
 
 export default App;
-
-const Container = styled.div`
-  max-width: 1024px;
-`;

@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState, useReducer, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getItemList } from '../../redux/actions/itemActions';
-import styles from './CharacterList.module.css';
 import CharacterCardContainer from '../../container/CharacterCardContainer';
-// import FilteringToggleContainer from '../../container/FilteringToggleContainer';
 import Greetings from '../../assets/images/greetings.png';
 import { gsap } from 'gsap';
 import Header from './components/Header';
+import { Container } from '@components/common';
+import styled from '@emotion/styled';
 
 const CharacterList = () => {
   const dispatch = useDispatch();
@@ -69,42 +69,54 @@ const CharacterList = () => {
     [loading]
   );
 
+  const RenderCharaterCards = () => {
+    return (
+      <CharaterWrapper>
+        {storeData.map((character, idx) =>
+          storeData.length === idx + 1 ? (
+            <div ref={lastCharacterRef}>
+              <CharacterCardContainer id={character.id} character={character} />
+            </div>
+          ) : (
+            <CharacterCardContainer id={idx + 1} character={character} />
+          )
+        )}
+      </CharaterWrapper>
+    );
+  };
+
+  const RenderFilteredCharacterCards = () => {
+    return (
+      <section>
+        {getBookmark().length === 0 ? (
+          <div ref={greetingRef}>
+            <img src={Greetings}></img>
+            <p>NO BOOKMARK</p>
+          </div>
+        ) : (
+          <></>
+        )}
+        {getBookmark().map(character => (
+          <CharacterCardContainer id={character.id} character={character} />
+        ))}
+      </section>
+    );
+  };
   return (
     <>
       <Header />
-      <div className={styles.wrapper}>
-        {storeData.length === 0 ? <div>Sorry, there's no Data</div> : <></>}
-        {filter ? (
-          <section className={styles.characters}>
-            {getBookmark().length === 0 ? (
-              <div ref={greetingRef} className={styles.noBookmark}>
-                <img className={styles.noBookmarkImg} src={Greetings}></img>
-                <p>NO BOOKMARK</p>
-              </div>
-            ) : (
-              <></>
-            )}
-            {getBookmark().map(character => (
-              <CharacterCardContainer id={character.id} character={character} />
-            ))}
-          </section>
-        ) : (
-          <section className={styles.characters}>
-            {storeData.map((character, idx) =>
-              storeData.length === idx + 1 ? (
-                <div ref={lastCharacterRef}>
-                  <CharacterCardContainer id={character.id} character={character} />{' '}
-                </div>
-              ) : (
-                <CharacterCardContainer id={idx + 1} character={character} />
-              )
-            )}
-          </section>
-        )}
+      <Container>
+        {storeData.length === 0 && <div>Sorry, there's no Data</div>}
+        {filter ? <RenderFilteredCharacterCards /> : <RenderCharaterCards />}
         {loading ? <div>...loading</div> : <></>}
-      </div>
+      </Container>
     </>
   );
 };
 
 export default CharacterList;
+
+const CharaterWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
