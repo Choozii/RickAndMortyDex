@@ -1,28 +1,26 @@
 {
   "files": {
-    "main.css": "/RickAndMortyDex/static/css/main.8e7ea752.chunk.css",
-    "main.js": "/RickAndMortyDex/static/js/main.5c0158d6.chunk.js",
-    "main.js.map": "/RickAndMortyDex/static/js/main.5c0158d6.chunk.js.map",
-    "runtime-main.js": "/RickAndMortyDex/static/js/runtime-main.1266f624.js",
-    "runtime-main.js.map": "/RickAndMortyDex/static/js/runtime-main.1266f624.js.map",
-    "static/js/2.2f1d0c14.chunk.js": "/RickAndMortyDex/static/js/2.2f1d0c14.chunk.js",
-    "static/js/2.2f1d0c14.chunk.js.map": "/RickAndMortyDex/static/js/2.2f1d0c14.chunk.js.map",
-    "static/js/3.b0535344.chunk.js": "/RickAndMortyDex/static/js/3.b0535344.chunk.js",
-    "static/js/3.b0535344.chunk.js.map": "/RickAndMortyDex/static/js/3.b0535344.chunk.js.map",
+    "main.css": "/RickAndMortyDex/static/css/main.ba76b180.chunk.css",
+    "main.js": "/RickAndMortyDex/static/js/main.ec95af43.chunk.js",
+    "main.js.map": "/RickAndMortyDex/static/js/main.ec95af43.chunk.js.map",
+    "runtime-main.js": "/RickAndMortyDex/static/js/runtime-main.228d081f.js",
+    "runtime-main.js.map": "/RickAndMortyDex/static/js/runtime-main.228d081f.js.map",
+    "static/js/2.8350c218.chunk.js": "/RickAndMortyDex/static/js/2.8350c218.chunk.js",
+    "static/js/2.8350c218.chunk.js.map": "/RickAndMortyDex/static/js/2.8350c218.chunk.js.map",
     "index.html": "/RickAndMortyDex/index.html",
-    "static/css/main.8e7ea752.chunk.css.map": "/RickAndMortyDex/static/css/main.8e7ea752.chunk.css.map",
-    "static/js/2.2f1d0c14.chunk.js.LICENSE.txt": "/RickAndMortyDex/static/js/2.2f1d0c14.chunk.js.LICENSE.txt",
+    "static/css/main.ba76b180.chunk.css.map": "/RickAndMortyDex/static/css/main.ba76b180.chunk.css.map",
+    "static/js/2.8350c218.chunk.js.LICENSE.txt": "/RickAndMortyDex/static/js/2.8350c218.chunk.js.LICENSE.txt",
     "static/media/greetings.6ddd7d90.png": "/RickAndMortyDex/static/media/greetings.6ddd7d90.png",
     "static/media/icon_bookmark_default.a584738a.svg": "/RickAndMortyDex/static/media/icon_bookmark_default.a584738a.svg",
-    "static/media/icon_bookmark_selected.9e4da1bd.svg": "/RickAndMortyDex/static/media/icon_bookmark_selected.9e4da1bd.svg",
-    "static/media/icon_checked.e3211c04.svg": "/RickAndMortyDex/static/media/icon_checked.e3211c04.svg",
+    "static/media/icon_bookmark_selected.b1b5328d.svg": "/RickAndMortyDex/static/media/icon_bookmark_selected.b1b5328d.svg",
+    "static/media/icon_checked.3a22d68d.svg": "/RickAndMortyDex/static/media/icon_checked.3a22d68d.svg",
     "static/media/icon_unchecked.322222e2.svg": "/RickAndMortyDex/static/media/icon_unchecked.322222e2.svg",
     "static/media/noResultImage.e3790b11.png": "/RickAndMortyDex/static/media/noResultImage.e3790b11.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.1266f624.js",
-    "static/js/2.2f1d0c14.chunk.js",
-    "static/css/main.8e7ea752.chunk.css",
-    "static/js/main.5c0158d6.chunk.js"
+    "static/js/runtime-main.228d081f.js",
+    "static/js/2.8350c218.chunk.js",
+    "static/css/main.ba76b180.chunk.css",
+    "static/js/main.ec95af43.chunk.js"
   ]
 }
