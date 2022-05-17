@@ -6,7 +6,7 @@ import { getSearchResult } from '../../redux/actions/itemActions';
 import styles from './Searching.module.css';
 import NoResult from '../../assets/images/noResultImage.png';
 import gsap from 'gsap';
-import CharacterCardContainter from '../../container/CharacterCardContainer';
+import CharacterCardContainter from '../CharacterList/CharacterCardContainer';
 
 const Searching = () => {
   const dispatch = useDispatch();

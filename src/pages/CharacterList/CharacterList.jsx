@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useReducer, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getItemList } from '../../redux/actions/itemActions';
-import CharacterCardContainer from '../../container/CharacterCardContainer';
+import CharacterCardContainer from './CharacterCardContainer';
 import Greetings from '../../assets/images/greetings.png';
 import { gsap } from 'gsap';
 import Header from './components/Header';
