@@ -1,5 +1,5 @@
-import SearchResult from './SearchingPage/Searching';
-import CharacterDetail from './CharacterPage/Character';
+import SearchResult from './SearchResult/SearchResult';
+import CharacterDetail from './CharacterDetail/CharacterDetail';
 import CharacterList from './CharacterListPage/CharacterList';
 
 export { SearchResult, CharacterDetail, CharacterList };

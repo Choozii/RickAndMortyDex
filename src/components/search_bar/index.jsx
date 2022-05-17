@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import styled from '@emotion/styled';
-import { color } from '../constants/color';
+import { color } from '@constants/color';
 
-const SearchInput = () => {
+const SearchBar = () => {
   const [words, setWords] = useState('');
   const history = useHistory();
+  const ENTER_KEY = 13;
   const getWords = e => {
     setWords(e.target.value);
   };
@@ -16,14 +17,14 @@ const SearchInput = () => {
       state: { words: words },
     });
   };
-
+  const handleKeyDown = () => {
+    if (window.event.keyCode === ENTER_KEY) fetchSearchResult();
+  };
   return (
     <SearchBarContainer>
       <Input
         type="search"
-        onKeyUp={() => {
-          if (window.event.keyCode === 13) fetchSearchResult();
-        }}
+        onKeyDown={handleKeyDown}
         placeholder="캐릭터를 검색해보세요!"
         value={words}
         onChange={getWords}
@@ -35,7 +36,7 @@ const SearchInput = () => {
   );
 };
 
-export default SearchInput;
+export default SearchBar;
 
 const SearchBarContainer = styled.div`
   display: flex;
@@ -44,7 +45,7 @@ const SearchBarContainer = styled.div`
 const Input = styled.input`
   height: auto;
   border: 1px solid gray;
-  width: 250px;
+  width: 50%;
   border-radius: 6px;
   margin-right: 5px;
 `;
