@@ -1,6 +1,6 @@
 import React from 'react';
-import icon_bookmark_default from '@assets/images/icon_bookmark_default.svg';
-import icon_bookmark_selected from '@assets/images/icon_bookmark_selected.svg';
+import thumb_up from '@assets/images/thumb_up.svg';
+import pushed_thumb_up from '@assets/images/pushed_thumb_up.svg';
 import styled from '@emotion/styled';
 import { color } from '@constants/color';
 
@@ -15,13 +15,7 @@ const CharacterCard = ({ character, checked, onClickBookmark, onClickCard }) => 
         <Label>{gender}</Label>
       </InfoWapper>
       <StatusColor status={status} />
-      {/* <button className={styles.bookmarkButton} onClick={onClickHandle}>
-          {checked ? (
-            <img alt="아이콘:북마크 선택됨" lassName={styles.bookmarkImg} src={icon_bookmark_selected}></img>
-          ) : (
-            <img alt="아이콘:북마크 해제됨" className={styles.bookmarkImg} src={icon_bookmark_default}></img>
-          )}
-        </button>  */}
+      {checked ? <Img src={pushed_thumb_up} />:<Img src={thumb_up} />}
     </CardContainer>
   );
 };
@@ -65,4 +59,11 @@ const InfoWapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+`;
+const Img = styled.img`
+  position : absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 24px;
+  height: 24px;
 `;
