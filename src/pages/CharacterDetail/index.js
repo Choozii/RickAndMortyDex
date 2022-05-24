@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import { BackBtnHeader } from '@components/header';
 import styled from '@emotion/styled';
 import { Container } from '@components/common';
 
@@ -14,7 +13,6 @@ const CharacterDetailPage = () => {
 
   return (
     <Container>
-      <BackBtnHeader />
       <ContentWrapper>
         <Image src={image} />
         <ul>

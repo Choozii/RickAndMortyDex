@@ -1,21 +1,21 @@
 import styled from '@emotion/styled';
 import { SolidButton } from '@components/button';
-import { useHistory } from 'react-router-dom';
-
-const HeaderContainer = ({ children }) => {
-  return <HeaderWrapper>{children}</HeaderWrapper>;
+import { useHistory, useLocation } from 'react-router-dom';
+import SearchBar from '@components/search_bar';
+import Checkbox from '@components/check_box';
+const HeaderContainer = ({ handleClick, checked }) => {
+  const history = useHistory();
+  const location = useLocation();
+  let home = location.pathname == '/';
+  return (
+    <HeaderWrapper>
+      {home && <Checkbox title="즐겨찾기" checked={checked} onClick={handleClick} />}
+      {home || <SolidButton onClick={() => history.goBack()}>뒤로가기</SolidButton>}
+    </HeaderWrapper>
+  );
 };
 
 export default HeaderContainer;
-
-export const BackBtnHeader = () => {
-  const history = useHistory();
-  return (
-    <HeaderContainer>
-      <SolidButton onClick={() => history.goBack()}>뒤로가기</SolidButton>
-    </HeaderContainer>
-  );
-};
 
 const HeaderWrapper = styled.div`
   z-index: 10;
@@ -29,7 +29,7 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 65px;
+  min-height: 50px;
   flex-wrap: wrap;
   margin-bottom: 65px;
 `;

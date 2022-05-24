@@ -15,7 +15,7 @@ const CharacterCard = ({ character, checked, onClickBookmark, onClickCard }) => 
         <Label>{gender}</Label>
       </InfoWapper>
       <StatusColor status={status} />
-      {checked ? <Img src={pushed_thumb_up} />:<Img src={thumb_up} />}
+      {checked ? <Img src={pushed_thumb_up} /> : <Img src={thumb_up} />}
     </CardContainer>
   );
 };
@@ -30,7 +30,7 @@ const CardContainer = styled.div`
   border: 1px solid ${color.gray[100]};
   border-radius: 8px;
   box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
-
+  width: fit-content;
   :hover {
     cursor: pointer;
     filter: opacity(70%);
@@ -61,7 +61,7 @@ const InfoWapper = styled.div`
   margin-top: 10px;
 `;
 const Img = styled.img`
-  position : absolute;
+  position: absolute;
   right: 20px;
   bottom: 20px;
   width: 24px;

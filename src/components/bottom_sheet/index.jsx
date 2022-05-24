@@ -1,12 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 
 const BottomSheet = ({ title, children }) => {
   const [showBottomSheet, setShowBottomSheet] = useState(false);
   const ref = useRef();
+
   const onButtonClick = () => {
     setShowBottomSheet(!showBottomSheet);
   };
+
   return (
     <Container show={showBottomSheet}>
       <HeaderButton show={showBottomSheet} onClick={onButtonClick}>
@@ -29,13 +31,15 @@ const Container = styled.div`
   left: 20px;
   bottom: ${({ show }) => (show ? '0px' : '20px')};
   transition: bottom ease 0.5s;
+  z-index: 1;
 `;
 const HeaderButton = styled.button`
-  background-color: #9cc0f9;
+  background-color: #00cec9;
   color: white;
-  width: 80px;
-  padding: 8px;
-  padding-left: 50px;
+  /* width: 80px; */
+  text-align: center;
+  padding: 10px 20px;
+  /* padding-left: 50px; */
   border-radius: ${props => (props.show ? '12px 12px 0px 0px' : '12px')};
   border: none;
   box-shadow: ${props => (props.show ? 'none' : 'inset 3px 3px 8px rgba(0, 0, 0, 0.1);')};
@@ -45,7 +49,7 @@ const ButtonImg = styled.img`
   height: 20px;
 `;
 const ContentWrapper = styled.div`
-  background-color: #9cc0f9;
+  background-color: #00cec9;
   padding: 10px 10px;
   color: white;
   border-radius: 12px 0px 12px 12px;
