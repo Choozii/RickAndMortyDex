@@ -4,7 +4,6 @@ import { SolidButton } from '@components/button';
 
 const SearchBar = ({ placeholder, onCallback }) => {
   const [words, setWords] = useState('');
-  const ENTER_KEY = 13;
 
   const setWordState = ({ target }) => {
     setWords(target.value);
@@ -12,12 +11,12 @@ const SearchBar = ({ placeholder, onCallback }) => {
 
   const onSearch = () => {
     if (words == null) return;
-    onCallback();
+    onCallback(words);
     setWords('');
   };
 
-  const handleKeyDown = () => {
-    if (window.event.keyCode === ENTER_KEY) onSearch();
+  const handleKeyDown = e => {
+    if (e.key == 'Enter') onSearch();
   };
 
   return (
@@ -41,4 +40,6 @@ const Input = styled.input`
   border: 1px solid gray;
   border-radius: 6px;
   margin-right: 5px;
+  min-width: 200px;
+  outline: none;
 `;
