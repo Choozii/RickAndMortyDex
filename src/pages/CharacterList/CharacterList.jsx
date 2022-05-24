@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getItemList, updateFetchIndex } from '@redux/actions/itemActions';
 import CharacterCardContainer from './CharacterCardContainer';
-import Header from './components/Header';
 import { Container } from '@components/common';
 import styled from '@emotion/styled';
 import Spinner from '@components/spinner';
@@ -88,7 +87,6 @@ const CharacterList = () => {
   };
   return (
     <>
-      <Header />
       <StyledContainer>
         {filter ? <RenderFilteredCharacterCards /> : <RenderCharaterCards />}
         {loading ? <Spinner /> : <></>}
