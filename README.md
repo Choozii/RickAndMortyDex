@@ -8,16 +8,17 @@
   - craco
   - emotion/styled
 
+[plan 🎶](https://bedecked-bull-1df.notion.site/RickAndMorty-Plan-08d63992a8b94132813274c1cd4951f7)
+
 ---
 
 # Rick And Morty Dex
 
 릭앤 모티에 나오는 캐릭터 도감입니다.
+
 좋아하는 캐릭터를 즐겨찾기 해보세요!
 
-## 실행법
-
-In RickAndMortyDex directory, 1. npm install 2. npm start 3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+https://choozii.github.io/RickAndMortyDex
 
 ## 주요 기능
 
